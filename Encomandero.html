@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game Site</title>
+    <style>
+        h1 {
+            text-align: center;
+            font-weight: bold;
+        }
+        /* Add your custom styles here */
+        #game-container {
+            width: 800px;
+            height: 600px;
+            margin: auto;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.js"></script>
+</head>
+<body>
+    <h1>Welcome to the Game Site!</h1>
+    
+    <div id="game-container"></div>
+    
+    <script>
+        // Initialize Phaser game
+        var config = {
+            type: Phaser.AUTO,
+            width: 800,
+            height: 600,
+            parent: 'game-container',
+            scene: {
+                preload: preload,
+                create: create,
+                update: update
+            }
+        };
+
+        var game = new Phaser.Game(config);
+
+        function preload() {
+            // Load assets
+            this.load.image('logo', 'https://phaser.io/images/img.png');
+        }
+
+        function create() {
+            // Add assets to the scene
+            this.add.image(400, 300, 'logo');
+        }
+
+        function update() {
+            // Game logic goes here
+        }
+    </script>
+</body>
