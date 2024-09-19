@@ -37,14 +37,17 @@
             background-color: white;
             cursor: pointer;
         }
+        #board {
+            display:grid;
+            gap: 20px;
+            grid-template: repeat(3, 150px) / repeat(3, 150px);
+
+        }
     </style>
 
 </head>
 
 <body>
-    <div id="game-board">
-        <!-- Game elements will be inserted here -->
-    </div>
     <button id="start-button">Start Game</button>
     <div class="flexbox">
         <div id="board"></div>

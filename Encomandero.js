@@ -17,8 +17,8 @@
      document.getElementById('game-board').innerHTML = `<div class="target ${position}"></div>`;
  }
 
- // Event listener for button
- document.getElementById('start-button').addEventListener('click', startGame);
+// Event listener for button
+document.getElementById('start-button').addEventListener('click', startGame);
 
 console.log('javascript loaded')
 const directions = Array(
@@ -26,8 +26,8 @@ const directions = Array(
     'ww', 'ns','ee',
     'sw', 'ss', 'se'
 )
-
 const board = document.getElementById('board')
+
 //generate grid items
 for (let i = 0; i < directions.length; i++) {
     board.innerHTML += '<div class="hut-default" id='+ directions[i] +'></div>'
