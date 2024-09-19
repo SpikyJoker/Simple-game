@@ -6,7 +6,7 @@
             height: 600px;
             overflow-x: hidden;
             overflow-y: hidden;
-
+            background-color: transparent;
         }
         #start-button {
             padding: 10px 20px;
@@ -29,9 +29,10 @@
             margin-top: 20px;
             margin-left: 20px;
         }
-        .Hole {
-            width: 100px;
-            height: 100px;
+
+        .hut-default {
+            width: 125px;
+            height: 125px;
             border: 1px solid black;
             background-color: white;
             cursor: pointer;
@@ -46,56 +47,8 @@
     </div>
     <button id="start-button">Start Game</button>
     <div class="flexbox">
-        <table>
-            <tr>
-                <td class="Hole"></td>
-                <td class="Hole"></td>
-                <td class="Hole"></td>
-            </tr>
-            <tr>
-                <td class="Hole"></td>
-                <td class="Hole"></td>
-                <td class="Hole"></td>
-            </tr>
-            <tr>
-                <td class="Hole"></td>
-                <td class="Hole"></td>
-                <td class="Hole"></td>
-            </tr>
-        </table>
+        <div id="board"></div>
     </div>
     <div id="status">Score: <span id="score">0</span></div>
-    <script src="script.js">
-         // Variables
-        let score = 0;
-        let positions = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
-
-        // Function to start the game
-        function startGame() {
-            score = 0;
-            document.getElementById('score').textContent = score;
-            alert('Game started! Click the correct area to gain points.');
-            updateGameBoard();
-        }
-
-        // Function to update game board
-        function updateGameBoard() {
-            let randomIndex = Math.floor(Math.random() * positions.length);
-            let position = positions[randomIndex];
-            document.getElementById('game-board').innerHTML = `<div class="target ${position}"></div>`;
-        }
-        function getRandomInt(min, max) {
-            const minCeiled = Math.ceil(min);
-            const maxFloored = Math.floor(max);
-            return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
-        }
-
-
-
-
-        // Event listener for button
-        document.getElementById('start-button').addEventListener('click', startGame);
-
-
-    </script>
+    <script src="Encomandero.js"></script>
 </body>
