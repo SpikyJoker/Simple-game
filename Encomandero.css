@@ -1,0 +1,64 @@
+#title-bar {
+background-color: #615127;
+border-radius: 1rem;
+width: 40vw;
+margin: auto;
+}
+
+.bottom-aligned-image {
+    background-image: url('background.jpg');
+    image-rendering: optimizeQuality;
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100%;
+}
+h1 {
+    text-align: center;
+    padding: 1.5rem;
+    font-weight: 100;
+    color: white;
+}
+h3 {
+    font-weight: 600;
+    text-align: center;
+}
+h4 {
+    font-weight: 100;
+    text-align: left;
+}
+#game-area {
+    background-color: rgba(41, 27, 0, 0.5);
+    width: 60vw;
+    height: 100%;
+    margin: auto;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#game-description {
+    background-color: rgba(255, 253, 231, 0.849);
+    color: black;
+    border-radius: 1rem;
+    border: 0.2rem solid rgba(0, 0, 0, 0.801); 
+    padding: 1rem;
+    width: 40%;
+    margin: 1rem;
+    text-align: left;
+    
+}
+
+/* Add your custom styles here */
+#game-container {
+    width: 800px;
+    height: 600px;
+    margin: auto;
+}
+body {
+    height: 100vw;
+}

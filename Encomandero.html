@@ -1,54 +1,182 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Game Site</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Encomandero">
+    <meta name="keywords" content="Encomandero, Game">
+    <meta name="viewport" id="vp" content="user-scalable=no, width=520, initial-scale=0.5, maximum-scale=0.5">
     <style>
+        /* General styles */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            min-width: 300px;
+            overflow-x: hidden;
+            box-sizing: border-box; /* Ensure padding and borders are counted in element's width */
+            background-color: #615127;
+        }
+
+        #title-bar {
+            background-color: #615127;
+            border-radius: 1rem;
+            width: 40vw;
+            margin: auto;
+            min-width: fit-content;
+        }
+
+        .bottom-aligned-image {
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: bottom;
+            position: static;
+            width: 100%;
+            height: 100vh;
+        }
+
         h1 {
             text-align: center;
-            font-weight: bold;
+            padding: 1.5rem;
+            font-weight: 100;
+            color: white;
         }
-        /* Add your custom styles here */
+
+        h3 {
+            font-weight: 600;
+            text-align: center;
+        }
+
+        h4 {
+            font-weight: 100;
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        #game-area {
+            background-color: rgba(41, 27, 0, 0.5);
+            width: 90vw;
+            margin: auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            min-width: 800px; /* Ensures space for game-container */
+            box-sizing: border-box; /* Ensure padding is included in total width */
+        }
+
+        #game-description {
+            background-color: rgba(255, 253, 231, 0.85);
+            color: black;
+            border-radius: 1rem;
+            border: 0.2rem solid rgba(0, 0, 0, 0.8);
+            padding: 1rem;
+            width: 40%;
+            margin: 1rem;
+            text-align: left;
+            box-sizing: border-box; /* Include padding in total width */
+        }
+
         #game-container {
+            min-width: 800px; /* Fixed size for the game */
+            min-height: 600px;
             width: 800px;
             height: 600px;
-            margin: auto;
+            background-color: #ddd;
+            border-radius: 10px;
+            margin: 1rem;
+            box-sizing: border-box; /* Include margin and padding in width */
+        }
+
+        
+        #start-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        #status {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+
+        /* Responsive styles */
+        @media (max-width: 1680px) {
+            #game-area {
+                width: 90vw;
+            }
+
+            #game-description {
+                width: 85%;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            #game-area {
+                flex-direction: column;
+                width: 95vw;
+                min-width: 800px; /* Ensures game-container isn't squished */
+            }
+
+            #game-description {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 900px) {
+            /* Adjust layout for smaller screens */
+            #game-area {
+                flex-direction: column;
+                width: 100vw;
+                overflow-x: hidden;
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            #game-container {
+                width: 800px;
+                height: 600px;
+                margin: 0;
+                padding: 0;
+            }
+
+            #game-description {
+                width: 90vw;
+                padding: 1rem;
+                box-sizing: border-box;
+                margin:1rem;
+            }
+
+            #title-bar {
+                width: 60%;
+            }
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.js"></script>
 </head>
+
 <body>
-    <h1>Welcome to the Game Site!</h1>
-    
-    <div id="game-container"></div>
-    
-    <script>
-        // Initialize Phaser game
-        var config = {
-            type: Phaser.AUTO,
-            width: 800,
-            height: 600,
-            parent: 'game-container',
-            scene: {
-                preload: preload,
-                create: create,
-                update: update
-            }
-        };
+    <div class="bottom-aligned-image">
+        <div id="title-bar">
+            <h1>Encomandero</h1>
+        </div>
+        <div id="game-area">
+            <iframe id="game-container" src="./Game.html" frameborder="0">
 
-        var game = new Phaser.Game(config);
-
-        function preload() {
-            // Load assets
-            this.load.image('logo', 'https://phaser.io/images/img.png');
-        }
-
-        function create() {
-            // Add assets to the scene
-            this.add.image(400, 300, 'logo');
-        }
-
-        function update() {
-            // Game logic goes here
-        }
-    </script>
+            </iframe>
+            <div id="game-description">
+                <h3>Encomandero - Whack-a-Mole</h3>
+                <h4>Step into the shiny boots of a 16th-century Spanish conquistador as you manage your very own encomienda—a sprawling piece of stolen land filled with hardworking locals.</h4>
+                <h4>But there's a problem: your unpaid workforce dares to resist! In Encomandero, a satirical take on the classic whack-a-mole, you'll be tasked with keeping the locals "in line" as they attempt to flee or rise up.</h4>
+                <h4>With your trusty mazo in hand, you must crush the rebelling indigenous people back into submission before they escape or fight for their freedom. Beware: the longer you take, the more defiant they become.</h4>
+                <h4>Enjoy your "civilizing missions."</h4>
+            </div>
+        </div>
+    </div>
 </body>
+
+</html>
