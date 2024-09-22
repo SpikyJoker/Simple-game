@@ -8,8 +8,16 @@
             overflow-y: hidden;
             background-color: transparent;
         }
-        #start-button {
+        .button-default {
+            background-color: cornsilk;
             padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .button-clicked {
+            padding: 10px 20px;
+            background-color: gray;
             font-size: 16px;
             margin-top: 20px;
             cursor: pointer;
@@ -21,32 +29,32 @@
         }
         .flexbox {
             display: flex;
-            justify-content: center;
             align-items: center;
+            flex-direction: row;
+            justify-content: center;
+            height: 100%;
         }
         table {
             align-self: center;
             margin-top: 20px;
             margin-left: 20px;
         }
-
-        .hut-default {
-            border: 1px solid black;
+        .hut-default{
             background-image: url('/Static/Default.png');
+        }
+        .hut {
+            border: 1px solid black;
             background-size: cover;
             cursor: pointer;
         }
         .hut-rebel {
-            border: 1px solid black;
             background-image: url('/Static/Rebel.png');
-            background-size: cover;
-            cursor: pointer;
         }
         .hut-slaughter {
-            border: 1px solid black;
             background-image: url('/Static/Slaughter.png');
-            background-size: cover;
-            cursor: pointer;
+        }
+        .hut-appease {
+            background-image: url('/Static/Appease.png');
         }
         #board {
             display:grid;
@@ -54,15 +62,28 @@
             grid-template: repeat(3, 150px) / repeat(3, 150px);
 
         }
+        #game-info {
+            flex-direction: column;
+            margin-right: 50px;
+        }
+
     </style>
 
 </head>
 
 <body>
-    <button id="start-button">Start Game</button>
+    
     <div class="flexbox">
+        <div id="game-info" class="flexbox">
+            <button class="button-default" id="start">Start Game</button>
+            <button class="button-default" id="end">End Game</button>
+            <div id="status">Score: <span id="score">0</span></div>
+            <div>
+                <img id = 'mask' alt="Lives" src='Static/mask-happy.png'></img>
+            </div>
+        </div>
         <div id="board"></div>
     </div>
-    <div id="status">Score: <span id="score">0</span></div>
+    
     <script src="Encomandero.js"></script>
 </body>
